@@ -1,0 +1,19 @@
+npm install -g nodemon
+npm install -g concurrently
+npm install neo4j-driver
+npm install node-sass nodemon --save-dev
+npm install -g sass
+npm install -g express-generator
+
+pip install cornershot neo4j
+pip3 install https://files.pythonhosted.org/packages/d3/91/1b2871d6c8ca079254deae5872af32e02e9a85f07dd0834e8b3489ce138f/torch-0.4.1.post2-cp37-cp37m-manylinux1_x86_64.whl    
+pip3 install --user torchvision  
+
+pip install cornershot
+https://github.com/SecureAuthCorp/impacket
+
+git remote add origin https://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@github.com/nhulong2201/REPLACE-REPO-NAME.git/
+
+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
+
+hwaS1RbjKxEYfGpkfA9N

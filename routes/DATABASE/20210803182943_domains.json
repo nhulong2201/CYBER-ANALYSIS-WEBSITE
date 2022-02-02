@@ -1,0 +1,143 @@
+﻿{
+    "domains": [
+        {
+            "Properties": {
+                "highvalue": true,
+                "name": "ADSLAB.LOCAL",
+                "domain": "ADSLAB.LOCAL",
+                "objectid": "S-1-5-21-3575477103-1058849377-3253337160",
+                "distinguishedname": "DC=adslab,DC=local",
+                "description": null,
+                "functionallevel": "2016"
+            },
+            "Users": [
+                "S-1-5-21-3575477103-1058849377-3253337160-502",
+                "S-1-5-21-3575477103-1058849377-3253337160-500",
+                "S-1-5-21-3575477103-1058849377-3253337160-501"
+            ],
+            "Computers": [],
+            "ChildOus": [
+                "DE020240-99C8-4F13-B7F5-B49D2C38D8F4",
+                "F88C1142-D3FA-4240-B563-7E00063B353E",
+                "8A813682-81EA-41DF-8666-F72335A50502",
+                "BB1B5871-87D0-4951-B71A-1397A9A9A2AD",
+                "DEB1E7C4-9E10-4009-A5CC-E7AF1ADA7AFD",
+                "119FF531-30FF-4819-8AEB-BDF142179E6C",
+                "88E11C33-2E0A-42A4-889C-5908FC7E9F8F",
+                "E1B87A53-4990-41E1-8A99-13D7FAA467E3",
+                "64C539DD-CF39-4494-A263-5DAC26BA8A8B",
+                "24C52ED1-6E56-4014-A58E-DB45281949AF"
+            ],
+            "Trusts": [],
+            "Links": [
+                {
+                    "IsEnforced": false,
+                    "Guid": "4A90E6CE-76BD-4614-A942-511EA9E71A0F"
+                }
+            ],
+            "RemoteDesktopUsers": [],
+            "LocalAdmins": [],
+            "DcomUsers": [],
+            "PSRemoteUsers": [],
+            "ObjectIdentifier": "S-1-5-21-3575477103-1058849377-3253337160",
+            "Aces": [
+                {
+                    "PrincipalSID": "ADSLAB.LOCAL-S-1-5-32-544",
+                    "PrincipalType": "Group",
+                    "RightName": "Owner",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "ADSLAB.LOCAL-S-1-5-32-544",
+                    "PrincipalType": "Group",
+                    "RightName": "WriteDacl",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "ADSLAB.LOCAL-S-1-5-32-544",
+                    "PrincipalType": "Group",
+                    "RightName": "WriteOwner",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "ADSLAB.LOCAL-S-1-5-32-544",
+                    "PrincipalType": "Group",
+                    "RightName": "ExtendedRight",
+                    "AceType": "All",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-512",
+                    "PrincipalType": "Group",
+                    "RightName": "WriteDacl",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-512",
+                    "PrincipalType": "Group",
+                    "RightName": "WriteOwner",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-512",
+                    "PrincipalType": "Group",
+                    "RightName": "ExtendedRight",
+                    "AceType": "All",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-519",
+                    "PrincipalType": "Group",
+                    "RightName": "GenericAll",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "ADSLAB.LOCAL-S-1-5-9",
+                    "PrincipalType": "Group",
+                    "RightName": "ExtendedRight",
+                    "AceType": "GetChanges",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "ADSLAB.LOCAL-S-1-5-32-544",
+                    "PrincipalType": "Group",
+                    "RightName": "ExtendedRight",
+                    "AceType": "GetChangesAll",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "ADSLAB.LOCAL-S-1-5-32-544",
+                    "PrincipalType": "Group",
+                    "RightName": "ExtendedRight",
+                    "AceType": "GetChanges",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-498",
+                    "PrincipalType": "Group",
+                    "RightName": "ExtendedRight",
+                    "AceType": "GetChanges",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-516",
+                    "PrincipalType": "Group",
+                    "RightName": "ExtendedRight",
+                    "AceType": "GetChangesAll",
+                    "IsInherited": false
+                }
+            ]
+        }
+    ],
+    "meta": {
+        "count": 1,
+        "type": "domains",
+        "version": 3
+    }
+}

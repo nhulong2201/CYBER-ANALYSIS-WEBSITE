@@ -1,0 +1,177 @@
+﻿{
+    "gpos": [
+        {
+            "Properties": {
+                "highvalue": false,
+                "name": "DEFAULT DOMAIN POLICY@ADSLAB.LOCAL",
+                "domain": "ADSLAB.LOCAL",
+                "objectid": "4A90E6CE-76BD-4614-A942-511EA9E71A0F",
+                "distinguishedname": "CN={31B2F340-016D-11D2-945F-00C04FB984F9},CN=Policies,CN=System,DC=adslab,DC=local",
+                "description": null,
+                "gpcpath": "\\\\adslab.local\\sysvol\\adslab.local\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}"
+            },
+            "ObjectIdentifier": "4A90E6CE-76BD-4614-A942-511EA9E71A0F",
+            "Aces": [
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-512",
+                    "PrincipalType": "Group",
+                    "RightName": "Owner",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-512",
+                    "PrincipalType": "Group",
+                    "RightName": "WriteDacl",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-512",
+                    "PrincipalType": "Group",
+                    "RightName": "WriteOwner",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-512",
+                    "PrincipalType": "Group",
+                    "RightName": "GenericWrite",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-512",
+                    "PrincipalType": "Group",
+                    "RightName": "WriteDacl",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-512",
+                    "PrincipalType": "Group",
+                    "RightName": "WriteOwner",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-512",
+                    "PrincipalType": "Group",
+                    "RightName": "GenericWrite",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-519",
+                    "PrincipalType": "Group",
+                    "RightName": "WriteDacl",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-519",
+                    "PrincipalType": "Group",
+                    "RightName": "WriteOwner",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-519",
+                    "PrincipalType": "Group",
+                    "RightName": "GenericWrite",
+                    "AceType": "",
+                    "IsInherited": false
+                }
+            ]
+        },
+        {
+            "Properties": {
+                "highvalue": false,
+                "name": "DEFAULT DOMAIN CONTROLLERS POLICY@ADSLAB.LOCAL",
+                "domain": "ADSLAB.LOCAL",
+                "objectid": "E5896553-9646-446E-A8E8-05B6152C2334",
+                "distinguishedname": "CN={6AC1786C-016F-11D2-945F-00C04fB984F9},CN=Policies,CN=System,DC=adslab,DC=local",
+                "description": null,
+                "gpcpath": "\\\\adslab.local\\sysvol\\adslab.local\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}"
+            },
+            "ObjectIdentifier": "E5896553-9646-446E-A8E8-05B6152C2334",
+            "Aces": [
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-512",
+                    "PrincipalType": "Group",
+                    "RightName": "Owner",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-512",
+                    "PrincipalType": "Group",
+                    "RightName": "WriteDacl",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-512",
+                    "PrincipalType": "Group",
+                    "RightName": "WriteOwner",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-512",
+                    "PrincipalType": "Group",
+                    "RightName": "GenericWrite",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-512",
+                    "PrincipalType": "Group",
+                    "RightName": "WriteDacl",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-512",
+                    "PrincipalType": "Group",
+                    "RightName": "WriteOwner",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-512",
+                    "PrincipalType": "Group",
+                    "RightName": "GenericWrite",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-519",
+                    "PrincipalType": "Group",
+                    "RightName": "WriteDacl",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-519",
+                    "PrincipalType": "Group",
+                    "RightName": "WriteOwner",
+                    "AceType": "",
+                    "IsInherited": false
+                },
+                {
+                    "PrincipalSID": "S-1-5-21-3575477103-1058849377-3253337160-519",
+                    "PrincipalType": "Group",
+                    "RightName": "GenericWrite",
+                    "AceType": "",
+                    "IsInherited": false
+                }
+            ]
+        }
+    ],
+    "meta": {
+        "count": 2,
+        "type": "gpos",
+        "version": 3
+    }
+}

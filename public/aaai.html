@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <title>AAAI</title>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+        <script src="/build/sigma.min.js"></script>
+
+        <!-- Sigma plugins -->
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.layout.forceAtlas2/supervisor.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.layout.forceAtlas2/worker.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.edgeLabels/settings.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.def.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curve.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curvedArrow.js"></script>
+        <script src="./build/plugins/sigma.plugins.dragNodes.min.js"></script>
+        <script src="./build/plugins/sigma.pathfinding.astar.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/neo4j-driver"></script>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" crossorigin=""></script>
+        <script type="text/javascript" src="/Queries.json" defer></script>
+        <script type="text/javascript" src="/dbInfo.json" defer></script>
+        <script src="/javascripts/java.js" defer></script>
+    </head>
+
+    <body>
+          <div id="app">
+            <div class="alert alert-info alert-dismissible fade in" id="alert" v-if="alert">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close" v-on:click="alert = false">&times;</a>
+                <i class="fas fa-exclamation-circle"></i> NO DATA RETURNED FROM THE QUERY
+            </div>
+            <div class="dropdown">
+                <!-- <button onclick="myFunction(), get_wave()" class="dropbtn">Dropdown</button> -->
+                <div class="search-bar">
+                    <button onclick="myFunction()" class="dropbtn">WELCOME TO AAAI</button>
+                    <!-- <input type="text" id="search-nodes" placeholder="Enter a node"> -->
+                </div>
+                <div id="myDropdown" class="dropdown-content">
+                    <div class="button-container">
+                        <ul class="items">
+                            <li v-on:click="switch_to_bloodHound()" v-bind:class="{selected: searcher==='dbInfo'}">BLOODHOUND</li>
+                            <li v-on:click="searcher='ransom'" v-bind:class="{selected: searcher==='aaai'}">AAAI</li>
+                        </ul>
+
+                    </div>
+
+                    <div class="search-content">
+                        <!-- --------------ITERATIVE CUT---------------- -->
+                        <div class="regret_matching">
+                            <h2>Let's run all available methods</h2>
+                            <label>What's your budget:&nbsp;</label>
+                            <input type="text" placeholder="Enter your budget" v-model="aaai_input.budget">
+                            <hr >
+                            <hr >
+                            <label>Where do you want to start:&nbsp;</label>
+                            <input type="text" placeholder="Enter a start node" v-model="aaai_input.start">
+                            <hr>
+                            <hr >
+                            <button v-on:click = "loading = true" onclick="setTimeout(aaai, 1000)">RUN</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="aaai_res" v-if = "aaai_open">
+                <div class="title">
+                    <h3>AAAI RESULT</h3>
+                </div>
+                <div class="result" v-for = "item in aaai_result">
+                    <div class="result_container" v-if = "aaai_page_order === item.id">
+                        <div class="greedy">
+                            <table class="content-table">
+                                <thead>
+                                    <tr>
+                                        <!-- <th v-for="value in iterative_title">
+                                            {{value}}
+                                        </th> -->
+                                        <th colspan="2">GREEDY</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr v-for="edge in item.greedy">
+                                        <td v-for="node in edge">{{node}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="gnn">
+                            <table class="content-table">
+                                <thead>
+                                    <tr>
+                                        <!-- <th v-for="value in iterative_title">
+                                            {{value}}
+                                        </th> -->
+                                        <th colspan="2">GNN</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr v-for="edge in item.gnn">
+                                        <td v-for="node in edge">{{node}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="trivial">
+                            <table class="content-table">
+                                <thead>
+                                    <tr>
+                                        <!-- <th v-for="value in iterative_title">
+                                            {{value}}
+                                        </th> -->
+                                        <th colspan="2">Trivial</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr v-for="edge in item.trivial">
+                                        <td v-for="node in edge">{{node}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="class">
+                            <table class="content-table">
+                                <thead>
+                                    <tr>
+                                        <!-- <th v-for="value in iterative_title">
+                                            {{value}}
+                                        </th> -->
+                                        <th colspan="2">Classification</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr v-for="edge in item.cf">
+                                        <td v-for="node in edge">{{node}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="best_methods" v-if = "aaai_page_order === item.id">
+                        <b>Best Methods: </b>
+                        <li v-for="method in item.best">{{method}}</li>
+                    </div>
+                    <!-- <div class="page_order">
+                        <button v-for="number in 10">{{number}}</button>
+                    </div> -->
+                </div>
+                <div class="page_order">
+                    <button v-for="number in 10" v-on:click="aaai_page_order = number - 1"  v-bind:class="{button_selected: aaai_page_order + 1 === number}">{{number}}</button>
+                </div>
+            </div>
+            <div style="clear:both"></div>
+
+        </div>
+
+    </body>
+
+</html>
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <title>AAAI</title>
+        <!-- <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"> -->
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+        <script src="/build/sigma.min.js"></script>
+
+        <!-- Sigma plugins -->
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.layout.forceAtlas2/supervisor.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.layout.forceAtlas2/worker.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.edgeLabels/settings.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.def.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curve.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curvedArrow.js"></script>
+        <script src="./build/plugins/sigma.plugins.dragNodes.min.js"></script>
+        <script src="./build/plugins/sigma.pathfinding.astar.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/neo4j-driver"></script>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" crossorigin=""></script>
+        <script type="text/javascript" src="/Queries.json" defer></script>
+        <script type="text/javascript" src="/dbInfo.json" defer></script>
+        <script src="/javascripts/java.js" defer></script>
+    </head>
+
+    <body>
+        <div id="app" class="app">
+            <div class="login">
+                <fieldset>
+                    <label for="stacked-email">Username</label>
+                    <input type="text" id="stacked-email" placeholder="Enter your username" v-model = "login.username" />
+                    <label for="stacked-password">Password</label>
+                    <input type="password" id="stacked-password" placeholder="Enter your password" v-model = "login.password" />
+                    <p>{{login_fail}}</p>
+                    <button class="pure-button pure-button-primary" v-on:click = "login_neo4j()">Login</button>
+                </fieldset>
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
+

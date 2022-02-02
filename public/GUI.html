@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <title>BloodHound - Extended version</title>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sigma.js/1.2.1/sigma.min.js"></script> -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sigma.js/1.2.1/plugins/sigma.renderers.customShapes.min.js"></script> -->
+        <script src="/build/sigma.min.js"></script>
+        <!-- <script src="/build/shape-library.js"></script>
+        <script src="/build/sigma.renderers.customShapes.js"></script> -->
+        <!-- <script src="/build/plugins/sigma.renderers.customShapes.min.js"></script> -->
+
+        <!-- <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/sigma.core.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/conrad.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/utils/sigma.utils.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/utils/sigma.polyfills.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/sigma.settings.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/classes/sigma.classes.dispatcher.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/classes/sigma.classes.configurable.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/classes/sigma.classes.graph.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/classes/sigma.classes.camera.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/classes/sigma.classes.quad.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/classes/sigma.classes.edgequad.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/captors/sigma.captors.mouse.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/captors/sigma.captors.touch.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/renderers/sigma.renderers.canvas.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/renderers/sigma.renderers.webgl.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/renderers/sigma.renderers.svg.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/renderers/sigma.renderers.def.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/renderers/canvas/sigma.canvas.labels.def.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/renderers/canvas/sigma.canvas.hovers.def.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/renderers/canvas/sigma.canvas.nodes.def.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/renderers/canvas/sigma.canvas.edges.def.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/renderers/canvas/sigma.canvas.edges.curve.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/renderers/canvas/sigma.canvas.edges.arrow.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/renderers/canvas/sigma.canvas.edges.curvedArrow.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/renderers/canvas/sigma.canvas.edgehovers.def.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/renderers/canvas/sigma.canvas.edgehovers.curve.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/renderers/canvas/sigma.canvas.edgehovers.arrow.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/renderers/canvas/sigma.canvas.edgehovers.curvedArrow.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/renderers/canvas/sigma.canvas.extremities.def.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/middlewares/sigma.middlewares.rescale.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/middlewares/sigma.middlewares.copy.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/misc/sigma.misc.animation.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/misc/sigma.misc.bindEvents.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/misc/sigma.misc.bindDOMEvents.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/src/misc/sigma.misc.drawHovers.js"></script> -->
+
+        <!-- Sigma plugins -->
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.layout.forceAtlas2/supervisor.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.layout.forceAtlas2/worker.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.edgeLabels/settings.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.def.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curve.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sigma@1.2.1/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curvedArrow.js"></script>
+        <script src="./build/plugins/sigma.plugins.dragNodes.min.js"></script>
+        <script src="./build/plugins/sigma.pathfinding.astar.min.js"></script>
+        <!-- <script src="../plugins/sigma.renderers.customShapes/sigma.renderers.customShapes.js"></script> -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/neo4j-driver@1.6.0"></script> -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/neosig@1.2.2/docs/neosig-1.2.2.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/neo4j-driver"></script>
+        <!-- <script src="https://kit.fontawesome.com/6fa215a695.js" crossorigin="anonymous"></script> -->
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" crossorigin=""></script>
+        <script type="text/javascript" src="/Queries.json" defer></script>
+        <script type="text/javascript" src="/dbInfo.json" defer></script>
+        <script src="/javascripts/java.js" defer></script>
+    </head>
+
+    <body onload = "vueinst.get_domain()">
+          <div id="app">
+            <div class="alert alert-info alert-dismissible fade in" id="alert" v-if="alert">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close" v-on:click="alert = false">&times;</a>
+                <i class="fas fa-exclamation-circle"></i> NO DATA RETURNED FROM THE QUERY
+            </div>
+            <!-- --------------DROPDOWN BOX---------------- -->
+            <div class="dropdown">
+                    <!-- <button onclick="myFunction(), get_wave()" class="dropbtn">Dropdown</button> -->
+                    <div class="search-bar">
+                        <button onclick="myFunction()" class="dropbtn">BLOODHOUND TOOL - {{domain_info.domain_name}}</button>
+                        <!-- <input type="text" id="search-nodes" placeholder="Enter a node"> -->
+                    </div>
+                    <div id="myDropdown" class="dropdown-content">
+                        <div class="button-container">
+                            <ul class="items">
+                                <li v-on:click="switch_to_aaai(), searcher==='aaai'" v-bind:class="{selected: searcher==='aaai'}">AAAI</li>
+                                <li v-on:click="searcher='ransom'" v-bind:class="{selected: searcher==='ransom'}">Ransomulator</li>
+                            </ul>
+                            <ul class="items">
+                                <li v-on:click="searcher='nodeInfo'" v-bind:class="{selected: searcher==='nodeInfo'}">Node Info</li>
+                                <li v-on:click="searcher='shothound'" v-bind:class="{selected: searcher==='shothound'}" v-on:click="result_shothound_open=false, shothound_open = false">ShotHound</li>
+                            </ul>
+                            <ul class="items">
+                                <li v-on:click="searcher='analysis'" v-bind:class="{selected: searcher==='analysis'}">Analysis</li>
+                                <li v-on:click="searcher='raw_query'" v-bind:class="{selected: searcher==='raw_query'}">Raw Query</li>
+                            </ul>
+                            <ul class="items">
+                                <li v-on:click="searcher='iterative_cut', banned_set = []" v-bind:class="{selected: searcher==='iterative_cut'}">Iterative cut</li>
+                                <li v-on:click="searcher='Others'" v-bind:class="{selected: searcher==='Others'}">Others</li>
+                            </ul>
+
+                        </div>
+
+                        <div class="search-content">
+                            <!-- ANALYTIC QUERIES -->
+                            <div class="queries" v-if="searcher === 'analysis'">
+                                <ul>
+                                    <h2>Analytic queries</h2>
+                                    <li v-for = "(item, index) in query" v-on:click="query_index=index, loading=true" onclick="setTimeout(get_path, 1000)" v-bind:class="{selected_query: query_index===index}">
+                                        {{item.name}}
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- SHOTHOUND DROPDOWN -->
+                            <div class="shothound" v-if="searcher === 'shothound'">
+                                <h2>SHOTHOUND</h2>
+                                <label>Source</label>
+                                <input type="text" placeholder="Enter a source node" v-model="shothound_input.source">
+                                <hr >
+                                <i>Auto set to ALL if no source entered</i>
+                                <hr >
+                                <hr >
+                                <label>Target</label>
+                                <input type="text" placeholder="Enter a target node" v-model="shothound_input.target">
+                                <hr>
+                                <i>Auto set to DOMAIN ADMIN if no target entered</i>
+                                <hr >
+                                <button v-on:click = "loading = true" onclick="shothound()">RUN</button>
+                                <div v-if="result_shothound_open">
+                                    <h3>Result</h3>
+                                    <table class="path">
+                                        <tr v-for="(value, name) in path">
+                                            <td class="path_title">{{name}}</td>
+                                            <td>{{value}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                            <!-- -------NODE INFO----------------- -->
+                            <div class="node_info" v-if="searcher === 'nodeInfo'">
+                                <h3>Node Properties</h3>
+                                <table>
+                                    <tr v-for="(value, name) in props">
+                                        <td class="node_title">{{name | uppercase}}</td>
+                                        <td>{{value}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <!-- -----------RAW QUERY------------------- -->
+                            <div class="raw_query" v-if="searcher === 'raw_query'">
+                                <h2>Your query</h2>
+                                <div>
+                                    <input type="text" placeholder="Enter your query" v-model="raw_query">
+                                    <button v-on:click = "loading = true" onclick="raw_query()">RUN</button>
+                                </div>
+                                <i>Remember: In Neo4J, names are case-sensitive</i>
+                            </div>
+
+                            <!-- --------------RANSOMULATOR---------------- -->
+                            <div class="ransomulator_extra" v-if="searcher === 'ransom'">
+                                <h2>Ransomulator</h2>
+                                <div>
+                                    <label>Starting at </label>
+                                    <input type="text" placeholder="Enter a starting computer" v-model = "ransom_comp">
+                                    <hr>
+                                    <label for = "simulate">Simulation choice </label>
+                                    <select id="simulate"  v-model = "simulate">
+                                        <option value="practical" selected>Practical</option>
+                                        <option value="logical">Logical</option>
+                                        <option value="netonly">Net only</option>
+                                    </select>
+                                    <hr>
+
+                                    <button onclick="ransomulator()">RUN</button>
+                                </div>
+                            </div>
+
+                            <!-- --------------ITERATIVE CUT---------------- -->
+                            <div id="iterative_cut_2" v-if="searcher==='iterative_cut'">
+                                <h3>Iterative Cut</h3>
+                                <div>
+                                    <ul>
+                                        <li>This algorithm will cut all the paths leading to Domain Admin</li>
+                                        <li>After cutting, please check if cutset is practical. Otherwise, click on banned edges and recut*</li>
+                                    </ul>
+                                    <button onclick="iterative_cut()">CUT</button>
+                                </div>
+
+                            </div>
+
+
+                            <div class="regret_matching" v-if="searcher === 'regret_matching'">
+                                <h2>Let's discover the paths together!</h2>
+                                <label>Source</label>
+                                <input type="text" placeholder="Enter a source node" v-model="cfr.source">
+                                <hr >
+                                <hr >
+                                <label>Target&nbsp;</label>
+                                <input type="text" placeholder="Enter a target node" v-model="cfr.target">
+                                <hr>
+                                <hr >
+                                <button v-on:click = "loading = true" onclick="setTimeout(regret_matching_v2, 1000)">RUN</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+            </div>
+
+            <!-- --------------RANSOMULATOR---------------- -->
+            <div id="ransomulator" v-if="ransom_open">
+                <div class="title">
+                    <h3>Ransomulator</h3>
+                    <h3 class="close-btn" v-on:click="ransom_open = false">X</h3>
+                </div>
+                <table class="content-table">
+                    <thead>
+                        <tr>
+                            <th v-for="value in ransom_title">
+                                {{value}}
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr v-for="object in ransom">
+                            <!-- <td v-for="item in object">
+                                {{item}}
+                            </td> -->
+                            <td>
+                                {{object.Hostname}}
+                            </td>
+                            <td>
+                                {{object.Total}}
+                            </td>
+
+                            <td v-for="item in object.waves">
+                                {{item}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- --------------LOADING----------------- -->
+            <div v-if="loading" id="loading">
+                <i class="fa fa-spinner fa-spin" style="font-size:80px; color: red"></i>
+            </div>
+
+            <!-- --------------GRAPH----------------------- -->
+            <div id="sigma-container">
+            </div>
+
+            <!-- --------------QUERY-BOX-------------------------->
+            <div id="query-box" v-if="query_box">
+                <div class="title">
+                    <h3>Select one option</h3>
+                    <h3 class="close-btn" v-on:click="query_box = false">X</h3>
+                </div>
+                <div class="options">
+                    <li v-for = "(item, index) in query_options"  v-on:click="option_index=index, option_ready = true, query_box=false, query" onclick="setTimeout(get_path, 1000)">{{item}}</li>
+                </div>
+            </div>
+
+            <!-- --------------SHOTHOUND RESULT------------------------ -->
+            <div id="shothound_result" v-if="shothound_open">
+                <div class="title">
+                    <h3>SHOTHOUND</h3>
+                    <h3 class="close-btn" v-on:click="shothound_open = false">X</h3>
+                </div>
+                <table class="shothound_table" v-if="!shothound_empty">
+                    <thead>
+                        <tr>
+                            <th v-for="value in shothound_title">
+                                {{value}}
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr v-for="(value_carrier, name_carrier, index_carrier) in shothound">
+                            <td rowspan="value_carrier.length">{{name_carrier}}</td>
+                            <td>
+                                <table>
+                                    <tr v-for = "(value_target, name_target) in value_carrier">
+                                        <td rowspan="value_target.length">{{name_target}}</td>
+                                        <td>
+                                            <table class="table_port">
+                                                <tr v-for="(value_port, name_port) in value_target">
+                                                    <td>
+                                                        {{name_port}}
+                                                    </td>
+                                                    <td>
+                                                        {{value_port}}
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="empty" v-if="shothound_empty">
+                    <p>No paths that involve more that 1 computer were found, no need to invoke CornerShot...</p>
+                </div>
+            </div>
+
+            <!-- ----------------ZOOM IN - ZOOM OUT---------------- -->
+            <div class="leaflet-control leaflet-bar" id="zoom">
+                <a class="leaflet-control-zoom-in" href="#" title="Zoom in" onclick="zoomin()">+</a>
+                <a class="leaflet-control-zoom-in" href="#" title="Zoom out" onclick="zoomout()">-</a>
+            </div>
+
+            <!-- --------------ITERATIVE CUT-------------------------->
+            <div id="iterative_cut" v-if="iterative_open">
+                <div class="title">
+                    <h3>ITERATIVE CUT</h3>
+                    <h3 class="close-btn" v-on:click="iterative_open = false">X</h3>
+                </div>
+                <table class="content-table" v-if="!cut_empty">
+                    <thead>
+                        <tr>
+                            <th v-for="value in iterative_title">
+                                {{value}}
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr v-for="(cut, name, index) in cuts" v-on:click="banned_cut(index)" v-bind:class="{selected_banned: banned_set.includes(index)}">
+                            <td>{{name | toNumber}}</td>
+                            <td v-for="node in cut">
+                                {{node}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="recut" v-if="!cut_empty">
+                    <button onclick="iterative_cut()">RECUT</button>
+                    <div style="clear:both"></div>
+                </div>
+                <div class="empty" v-if="cut_empty">
+                    <p>The banned edges make it impossible to cut the graph!</p>
+                </div>
+            </div>
+
+            <!-- ---------------REGRET MATCHING ------------------ -->
+            <!-- <div id="regret_matching_2" v-if="regret_open && searcher === 'regret_matching'">
+                <div class="title">
+                    <h4>REGRET MATCHING &nbsp;</h3>
+                    <h4 class="close-btn" v-on:click="path_empty = !path_empty"><i class="fas fa-bars"></i></h3>
+                </div>
+                <table class="content-table regret" v-if="!path_empty">
+                    <tbody>
+                        <tr v-for="(value,name, index) in path_set.edges" v-on:click="regret_option = index, loading = true" v-bind:class="{selected_banned: regret_option===index}" onclick="setTimeout(regret_graph, 500)">
+                            <td>Option {{name | toNumber}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> -->
+
+
+
+            <!-- --------------NODE TYPES--------------------- -->
+            <!-- <div id="node_type">
+                <table class="content-table">
+                    <thead id="node_type">
+                        <tr>
+                            <th>Type</th>
+                            <th>Color</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>User</td>
+                            <td>Green</td>
+                        </tr>
+                        <tr>
+                            <td>Computer</td>
+                            <td>Orange</td>
+                        </tr>
+                        <tr>
+                            <td>Group</td>
+                            <td>Yellow</td>
+                        </tr>
+                        <tr>
+                            <td>OU</td>
+                            <td>Blue</td>
+                        </tr>
+                        <tr>
+                            <td>Domain</td>
+                            <td>Red</td>
+                        </tr>
+                        <tr>
+                            <td>Others</td>
+                            <td>Purple</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div> -->
+            <div style="clear:both"></div>
+
+        </div>
+
+    </body>
+
+</html>
+
+<!-- <script src="/build/plugins/sigma.renderers.customShapes.min.js"></script> -->
+
